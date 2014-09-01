@@ -47,15 +47,18 @@ angular.module('tttApp')
         .success(function(data){
           $scope.data.loading = false;
 
-          console.log(data.move)
+          if (Math.random() > 0.5) $('#druid')[0].play();
+          
           $scope.data.cells[data.move] = 1;
 
           if (data.gameState === 0) {
             $scope.data.gameState = 'Draw';
+            $('#druid_well_played')[0].play();
           } else if (data.gameState >= 10) {
             $scope.data.gameState = 'P1 Won';
           } else if (data.gameState <= -10) {
-            $scope.data.gameState = 'P2 Won'
+            $scope.data.gameState = 'P2 Won';
+            $('#druid_well_played')[0].play();
           };
         });
     }

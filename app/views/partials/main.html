@@ -1,6 +1,8 @@
 <div class="header">
   <h3 class="text-muted">Tic Tac Toe</h3>
   <button class='btn btn-primary' ng-click="createGame()">{{ data.running ? "Reset" : "New Game"}}</button>
+  &nbsp;&nbsp;
+  <img ng-show='data.loading' src='/images/loading.gif' />
 </div>
 <h2> {{ data.gameState }} </h2>
 <div class="gameboard" ng-show="data.initialized">
@@ -9,3 +11,6 @@
     <img ng-show='cell === 1' src='/images/p2.png' />
   </div>
 </div>
+
+<audio id="druid" src="/sounds/druid.ogg"></audio>
+<audio id="druid_well_played" src="/sounds/druid_well_played.ogg"></audio>
