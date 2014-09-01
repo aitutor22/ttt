@@ -46,8 +46,6 @@ angular.module('tttApp')
       $http.post('/api/makemove', {move: index})
         .success(function(data){
           $scope.data.loading = false;
-
-          if (Math.random() > 0.5) $('#druid')[0].play();
           
           $scope.data.cells[data.move] = 1;
 
@@ -59,7 +57,9 @@ angular.module('tttApp')
           } else if (data.gameState <= -10) {
             $scope.data.gameState = 'P2 Won';
             $('#druid_well_played')[0].play();
-          };
+          } else {
+            if (Math.random() > 0.4) $('#druid')[0].play();
+          }
         });
     }
 
