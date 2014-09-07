@@ -47,7 +47,7 @@ angular.module('tttApp')
         .success(function(data){
           $scope.data.loading = false;
           
-          $scope.data.cells[data.move] = 1;
+          $scope.data.cells[data.counterMove] = 1;
 
           if (data.gameState === 0) {
             $scope.data.gameState = 'Draw';
